@@ -383,6 +383,132 @@
       border-top:5px solid var(--ink);
       font-weight:800;
     }
+
+    .motto{
+      display:inline-block;
+      margin:18px auto 0;
+      padding:12px 18px;
+      background:var(--gold);
+      border:4px solid var(--ink);
+      border-radius:999px;
+      box-shadow:var(--shadow);
+      font-weight:900;
+      text-transform:uppercase;
+      font-size:clamp(18px,5vw,32px);
+      transform:rotate(-1deg);
+    }
+    .tap-hint{
+      display:inline-block;
+      margin-top:10px;
+      font-size:12px;
+      font-weight:900;
+      text-transform:uppercase;
+      color:#333;
+      background:#fff;
+      border:2px dashed var(--ink);
+      border-radius:999px;
+      padding:6px 10px;
+    }
+    details.drill{
+      border:4px solid var(--ink);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      background:white;
+      margin:14px 0;
+      overflow:hidden;
+    }
+    details.drill summary{
+      list-style:none;
+      cursor:pointer;
+      padding:16px;
+      font-weight:900;
+      text-transform:uppercase;
+      background:linear-gradient(90deg,var(--blue),var(--red));
+      color:white;
+      border-bottom:4px solid var(--ink);
+    }
+    details.drill summary::-webkit-details-marker{display:none}
+    details.drill summary:after{
+      content:" Tap to open";
+      float:right;
+      background:var(--gold);
+      color:var(--ink);
+      border:2px solid var(--ink);
+      border-radius:999px;
+      padding:2px 8px;
+      font-size:11px;
+    }
+    details.drill[open] summary:after{content:" Tap to close"}
+    .drill-body{padding:16px}
+    .upcoming-card{cursor:pointer}
+    .upcoming-card:active,.player:active,.storyButton:active{
+      transform:translate(3px,3px);
+      box-shadow:3px 3px 0 var(--ink);
+    }
+    @media(max-width:640px){
+      nav{
+        padding:8px;
+        gap:6px;
+      }
+      nav a{
+        font-size:11px;
+        padding:8px 10px;
+        box-shadow:2px 2px 0 var(--ink);
+      }
+      section{
+        padding:22px 12px;
+      }
+      .hero{
+        min-height:auto;
+        padding:34px 10px 46px;
+      }
+      h1{
+        font-size:clamp(48px,17vw,78px);
+        text-shadow:3px 3px 0 var(--ink), 6px 6px 0 var(--blue);
+      }
+      h2{font-size:40px}
+      .subtitle,.spray,.card,.player,details.drill{
+        box-shadow:4px 4px 0 var(--ink);
+      }
+      .subtitle{
+        font-size:14px;
+        padding:12px;
+      }
+      .motto{
+        font-size:20px;
+        box-shadow:4px 4px 0 var(--ink);
+      }
+      .grid.three,.grid.two{
+        grid-template-columns:1fr;
+      }
+      .players{
+        grid-template-columns:1fr 1fr;
+        gap:10px;
+      }
+      .player{
+        min-height:128px;
+        padding:12px;
+      }
+      .num{font-size:50px}
+      .pname{font-size:16px}
+      .panel{
+        margin:16px auto;
+        padding:16px;
+        border-radius:18px;
+        box-shadow:6px 6px 0 var(--ink);
+      }
+      .statgrid{
+        grid-template-columns:repeat(3,1fr);
+      }
+      table{
+        font-size:13px;
+      }
+      td,th{padding:8px 6px}
+      .bracket-inner{
+        min-width:720px;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -401,6 +527,8 @@
     <div>
       <div class="crest">★ District 6 ★ 10U Softball ★</div>
       <h1>Tampa BAYshore<br>Storm 10U</h1>
+      <div class="motto">One Team, One Dream</div>
+      
       <div class="subtitle">2026 DISTRICT 6 CHAMPIONS • Carol Kennedy Field • Tampa BAYshore Storm</div>
       <div class="spray">TBLL + BSLL energy. Red, white, blue, loud bats, fast feet, and a District 6 championship storm rolling through Carol Kennedy.</div>
 <div style="max-width:900px;margin:30px auto 0;position:relative;">
@@ -446,32 +574,44 @@
     <section id="upcoming-games">
       <h2>Upcoming Games</h2>
       <div class="grid three">
-        <div class="card">
-          <span class="tag blue">Game 1</span>
-          <h3>District 6 vs District 15</h3>
-          <p><strong>Date:</strong> Saturday, June 27, 2026</p>
-          <p><strong>Time:</strong> 9:00 AM</p>
-          <p><strong>Location:</strong> Keystone Little League</p>
-          <span class="tag">Opening Round</span>
-        </div>
+        <details class="drill upcoming-card" open>
+          <summary>Game 1 • 9:00 AM</summary>
+          <div class="drill-body">
+            <span class="tag blue">Game 1</span>
+            <h3>District 6 vs District 15</h3>
+            <p><strong>Date:</strong> Saturday, June 27, 2026</p>
+            <p><strong>Time:</strong> 9:00 AM</p>
+            <p><strong>Location:</strong> Keystone Little League</p>
+            <p><strong>Path:</strong> Opening round game for Tampa BAYshore Storm, District 6 Champions.</p>
+            <span class="tag">Opening Round</span>
+          </div>
+        </details>
 
-        <div class="card">
-          <span class="tag red">Game 2</span>
-          <h3>Loser Game 1 vs District 12</h3>
-          <p><strong>Date:</strong> Saturday, June 27, 2026</p>
-          <p><strong>Time:</strong> 12:00 PM</p>
-          <p><strong>Location:</strong> Keystone Little League</p>
-          <span class="tag">Elimination Game</span>
-        </div>
+        <details class="drill upcoming-card">
+          <summary>Game 2 • 12:00 PM</summary>
+          <div class="drill-body">
+            <span class="tag red">Game 2</span>
+            <h3>Loser Game 1 vs District 12</h3>
+            <p><strong>Date:</strong> Saturday, June 27, 2026</p>
+            <p><strong>Time:</strong> 12:00 PM</p>
+            <p><strong>Location:</strong> Keystone Little League</p>
+            <p><strong>Path:</strong> If District 6 loses Game 1, they play District 12 at noon.</p>
+            <span class="tag">Elimination Game</span>
+          </div>
+        </details>
 
-        <div class="card">
-          <span class="tag blue">Game 3</span>
-          <h3>Winner Game 1 vs District 12</h3>
-          <p><strong>Date:</strong> Saturday, June 27, 2026</p>
-          <p><strong>Time:</strong> 3:00 PM</p>
-          <p><strong>Location:</strong> Keystone Little League</p>
-          <span class="tag">Winners Bracket</span>
-        </div>
+        <details class="drill upcoming-card">
+          <summary>Game 3 • 3:00 PM</summary>
+          <div class="drill-body">
+            <span class="tag blue">Game 3</span>
+            <h3>Winner Game 1 vs District 12</h3>
+            <p><strong>Date:</strong> Saturday, June 27, 2026</p>
+            <p><strong>Time:</strong> 3:00 PM</p>
+            <p><strong>Location:</strong> Keystone Little League</p>
+            <p><strong>Path:</strong> If District 6 wins Game 1, they play District 12 at 3:00 PM.</p>
+            <span class="tag">Winners Bracket</span>
+          </div>
+        </details>
       </div>
     </section>
 
@@ -555,12 +695,19 @@
             <tr><td>G7</td><td>June 14</td><td>Final</td><td>Bayshore/Tampa Bay LL vs Interbay/Palma Ceia LL</td><td>W, 9-0</td></tr>
           </tbody>
         </table>
+        <details class="drill">
+          <summary>How to read the bracket path</summary>
+          <div class="drill-body">
+            <p><strong>District 6 vs District 15 at 9:00 AM</strong> determines the rest of Saturday. A win sends District 6 to the 3:00 PM winners bracket game against District 12. A loss sends District 6 to the 12:00 PM elimination game against District 12.</p>
+          </div>
+        </details>
       </div>
     </section>
 
     <section id="players">
       <h2>Players</h2>
       <div class="card" style="margin-bottom:18px"><span class="tag blue">Team Stats</span><span class="tag">.323 AVG</span><span class="tag">.455 OBP</span><span class="tag">48 Runs</span><span class="tag">40 Pitching Ks</span><span class="tag">1.80 Team ERA</span></div>
+      <p class="tap-hint">Tap any player card to drill into batting, pitching, and standout notes.</p>
       <div class="players" id="playerGrid"></div>
     </section>
   </main>
